@@ -1,0 +1,19 @@
+#Program to convert feet to meters
+def parse(feet_inches):
+    value = feet_inches.split()
+    feet = float(value[0])
+    inch = float(value[1])
+    return {"feet":feet, "inch":inch}
+
+# "Tuple indices must be integers or slices, not str", else error is obtained at result=... when trying return feet, inch
+
+def convert(feet,inch):
+    meters = feet*0.3054 + inch*.03
+    return meters
+
+user = input("Enter the value of feet and inches separated by a space: ")
+parsed = parse(user)
+result = convert(parsed['feet'],parsed['inch'])
+print(f"Converted value of {parsed['feet']} and {parsed['inch']} is {result} meters.")
+
+#Function is not subscriptable error when called parse['feet'] by accident
