@@ -1,0 +1,32 @@
+#Program to create a to-do list app
+todos = [] #Creating empty dictionary to add in the to-do list
+while True:
+    user_input = input("Do you want to add, edit, display, sort, complete a todo or exit?")
+    user_input = user_input.capitalize()
+    user_input = user_input.strip()
+    match user_input:
+        case 'Add':
+            add_item = input("Enter to-do: ")
+            todos.append(add_item)
+        case 'Sort':
+            todos = sorted(todos)
+            for i, j in enumerate(todos):
+                print(f"{i + 1}. {j}")
+        case 'Complete':
+            delete = int(input("Enter the index of item to be completed: "))
+            todos.pop(delete-1)
+        case 'Edit':
+            edit = int(input("Enter the index of item to be edited: "))
+            new_todo = input("Enter new to-do: ")
+            todos[edit-1] = new_todo
+        case 'Display':
+            for i,j in enumerate(todos):
+                print(f"{i+1}. {j}")
+        case 'Exit':
+            break
+
+print("Yay! Thank you for using the program.")
+
+
+
+    
