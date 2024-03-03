@@ -1,0 +1,14 @@
+#Program to generate a random integer within the given range using randint function
+import random
+def parse(range):
+  """Extract the values split by a comma in a string
+    and return the two values via a dictionary."""
+  limits = range.split(',')
+  lower = int(limits[0])
+  upper = int(limits[1])
+  return {"lower limit": lower,"upper limit":upper}
+
+range = input("Enter the range: ")
+parsed = parse(range)
+random = random.randint(parsed["lower limit"],parsed["upper limit"])
+print(random)
